@@ -19,11 +19,12 @@ import (
 )
 
 // dummy data
+var t = time.Now()
 var dummyTransaction = []*entity.Transaction{
 	&entity.Transaction{
 		ID				: 1,
 		UserId			: 1,
-		DeviceTimestamp	: time.Now(),
+		DeviceTimestamp	: t,
 		TotalAmount		: 100000,
 		PaidAmount		: 110000,
 		ChangeAmount	: 10000,
@@ -33,7 +34,7 @@ var dummyTransaction = []*entity.Transaction{
 	}, &entity.Transaction{
 		ID				: 2,
 		UserId			: 1,
-		DeviceTimestamp	: time.Now(),
+		DeviceTimestamp	: t,
 		TotalAmount		: 100000,
 		PaidAmount		: 110000,
 		ChangeAmount	: 10000,
@@ -47,7 +48,7 @@ type transactionRouteMock struct {
 	mock.Mock
 }
 
-func (s *transactionRouteMock) SaveTransaction(transaction entity.Transaction) (int, error) {
+func (s *transactionRouteMock) SaveTransaction(transaction entity.Transaction, userId int) (int, error) {
 	return 0, nil
 }
 
@@ -91,6 +92,7 @@ func (suite *TransactionRouteTestSuite) TestSaveDelivery() {
 
 	jsonValue, _ := json.Marshal(dummyTransaction[0])
 	req, _ := http.NewRequest(http.MethodPost, "/transaction/create", bytes.NewBuffer(jsonValue))
+	req.Header.Set("Authorization", "value")
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 
 	r.ServeHTTP(w, req)

@@ -94,7 +94,7 @@ func (suite *TransactionUsecaseTestSuite) TestSaveTransactionUsecase() {
 	suite.repositoryTest.(*repoMockTransaction).On("SaveTransaction", dummyTransaction[0]).Return(nil)
 	useCaseTest := NewTransaction(suite.repositoryTest)
 	// dummyTransaction[0].Password = "Change Password"
-	data, _ := useCaseTest.SaveTransaction(dummyTransaction[0])
+	data, _ := useCaseTest.SaveTransaction(dummyTransaction[0], 1)
 	assert.NotNil(suite.T(), data)
 }
 

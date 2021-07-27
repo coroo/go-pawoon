@@ -4,10 +4,12 @@ go 1.14
 
 require (
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751
+	github.com/coroo/go-lemonilo v0.0.0-20210702171543-43355ff358dd // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/garyburd/redigo v1.6.2
 	github.com/gin-gonic/gin v1.6.3
 	github.com/go-sql-driver/mysql v1.6.0
+	github.com/google/uuid v1.3.0
 	github.com/jackdoe/gin-basic-auth-dynamic v0.0.0-20201112112728-ede5321b610c
 	github.com/joho/godotenv v1.3.0
 	github.com/stretchr/testify v1.4.0

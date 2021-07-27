@@ -68,12 +68,14 @@ func TransactionCreate(c *gin.Context) {
 	claims, _ := utils.ExtractClaims(c.Request.Header["Authorization"][0])
 	var transactionEntity entity.Transaction
 	c.ShouldBindJSON(&transactionEntity)
-	transactionPK, err := transactionService.SaveTransaction(transactionEntity, int(claims["user_id"].(float64)))
-	if(err!=nil){
+	if claims["user_id"] != nil {
+		transactionPK, err := transactionService.SaveTransaction(transactionEntity, int(claims["user_id"].(float64)))
+		if(err!=nil){
 		c.JSON(http.StatusConflict, err)
-	} else {
-		transactionEntity.ID = transactionPK
-		c.JSON(http.StatusOK, transactionEntity)
+		} else {
+			transactionEntity.ID = transactionPK
+			c.JSON(http.StatusOK, transactionEntity)
+		}
 	}
 }
 

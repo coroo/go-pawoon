@@ -32,10 +32,11 @@ func (suite *TransactionRepositoryTestSuite) TestBuildNewTransactionRepository()
 
 func (suite *TransactionRepositoryTestSuite) TestTransactionCreate() {
 	repoTest := NewTransactionRepository()
+	t := time.Now()
 	dummyTransaction := entity.Transaction{
 		ID				: 1,
 		UserId			: 1,
-		DeviceTimestamp	: time.Now(),
+		DeviceTimestamp	: t,
 		TotalAmount		: 100000,
 		PaidAmount		: 110000,
 		ChangeAmount	: 10000,

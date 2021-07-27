@@ -6,6 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/google/uuid"
 )
 
 type TransactionService interface {
@@ -35,6 +36,7 @@ func (usecases *transactionService) GetTransaction(ctx *gin.Context) []entity.Tr
 }
 
 func (usecases *transactionService) SaveTransaction(transaction entity.Transaction, userId int) (int, error) {
+	transaction.Uuid = uuid.New().String()
 	transaction.UserId = userId
 	return usecases.repositories.SaveTransaction(transaction)
 }

@@ -19,7 +19,7 @@ func ConnectDB() (c *gorm.DB, err error) {
 	DB_PASSWORD := os.Getenv("DB_PASSWORD")
 
 	DB_TEST := os.Getenv("DB_TEST")
-	DB_DETAIL := DB_USERNAME + ":" + DB_PASSWORD + "@tcp(" + DB_HOST + ":" + DB_PORT + ")/" + DB_DATABASE + "?parseTime=true"
+	DB_DETAIL := DB_USERNAME + ":" + DB_PASSWORD + "@tcp(" + DB_HOST + ":" + DB_PORT + ")/" + DB_DATABASE
 	if DB_CONNECTION == "" {
 		DB_DETAIL = DB_TEST
 		conn, err := gorm.Open(sqlite.Open(DB_DETAIL), &gorm.Config{})

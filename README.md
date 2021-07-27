@@ -1,4 +1,4 @@
-# Go Limonilo
+# Go Pawoon
 
 :bulb: Create a backend using GoLang for User Profile CRUD (UserID, Email, Address, Password) and Login Process (Username & Password) Process which follow SOLID Principles.
 
@@ -17,7 +17,7 @@ This app use [gin](https://github.com/gin-gonic/gin) as a framework, [gorm](http
 
 2. You need to have database and set it later in .env:
 ```
-Create your own form-generator database, lets call it `enigmaschool`
+Create your own form-generator database, lets call it `go-pawoon`
 ```
 
 ## Install Swagger Library
@@ -25,15 +25,15 @@ Create your own form-generator database, lets call it `enigmaschool`
 go get -u github.com/swaggo/swag/cmd/swag
 ```
 
-## Easy Setup & Run Go Limonilo
-For make it easier to do configuration in Go Limonilo, I create shell script that you can use by type:
+## Easy Setup & Run Go Pawoon
+For make it easier to do configuration in Go Pawoon, I create shell script that you can use by type:
 ```bash
 ./run.sh
 ```
 
 > If you need to run manual, please see [manual handling section](#wheelchair-manual-handling)
 
-![Go Limonilo Configuration](storage/assets/img/run-sh.png)
+![Go Pawoon Configuration](storage/assets/img/run-sh.png)
 
 You need to use this step-by-step for running the app at the first time:
 ```go
@@ -44,9 +44,9 @@ You need to use this step-by-step for running the app at the first time:
 // You can always running unit test by this feature
 
 3. Update Swagger Documentation 
-// You use swagger for maintain API restful documentation. You can check it later after running app (4. Run Go Limonilo) and redirect to your app_link/swagger/index.html
+// You use swagger for maintain API restful documentation. You can check it later after running app (4. Run Go Pawoon) and redirect to your app_link/swagger/index.html
 
-4. Run Go Limonilo 
+4. Run Go Pawoon 
 // This feature is used for running the app
 ```
 
@@ -57,7 +57,7 @@ redirect to this link --> /swagger/index.html
 ```
 e.g. http://localhost:3000/swagger/index.html
 
-![Go Limonilo Swagger Viewer](storage/assets/img/screenshot.png)
+![Go Pawoon Swagger Viewer](storage/assets/img/screenshot.png)
 
 ---
 
@@ -81,7 +81,7 @@ swag init
 or
 ```bash
 {GOLANG_PATH}/go/bin/swag init 
-//e.g. /UserProfiles/kuncoro.barot/go/bin/swag init
+//e.g. /Transactions/kuncoro.barot/go/bin/swag init
 ```
 
 ## Running App
